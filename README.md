@@ -47,15 +47,19 @@ jupiter new jupiter-test
 > 本地数据库初始化, 配置数据库连接等 `config/config.toml`
 
 ```bash
-cd cmd
-go run main.go --config=../config/config.toml
+go run cmd/main.go --config=config/config.toml
 ```
 
->> [http://127.0.0.1:20105/jupiter](http://127.0.0.1:20105/jupiter)
+>> [127.0.0.1:20105/jupiter](http://127.0.0.1:20105/jupiter)
 
->> [http://127.0.0.1:20105/api/user/1](http://127.0.0.1:20105/api/user/1)
+>> [127.0.0.1:20105/api/user/1](http://127.0.0.1:20105/api/user/1)
+
+> `protoc` test
+
+```bash
+jupiter protoc -f ./pb/hello/hello.proto -o ./pb/hello -g
+
+jupiter protoc -f ./pb/hello/hello.proto -o ./internal/app/grpc -p jupiter-test -s
+```
 
 ## some exercise
-
-> 数据库连接 - 参见 `readme-jupiter.md`
-

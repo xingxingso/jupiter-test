@@ -10,6 +10,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"google.golang.org/grpc/examples/helloworld/helloworld"
 	"jupiter-test/internal/app/grpc/greeter"
+	"jupiter-test/internal/app/grpc/hello"
 	"jupiter-test/internal/app/handler"
 	"time"
 )
@@ -46,6 +47,10 @@ func (eng *Engine) serveHTTP() error {
 	group2 := server.Group("/grpc")
 	group2.GET("/get", xecho.GRPCProxyWrapper(g.SayHello))
 	group2.POST("/post", xecho.GRPCProxyWrapper(g.SayHello))
+
+	g2 := hello.HelloServiceServer{}
+	group2.GET("/hello", xecho.GRPCProxyWrapper(g2.SayHello))
+
 	return eng.Serve(server)
 }
 
