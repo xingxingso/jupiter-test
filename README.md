@@ -63,3 +63,14 @@ jupiter protoc -f ./pb/hello/hello.proto -o ./internal/app/grpc -p jupiter-test 
 ```
 
 ## some exercise
+
+- > `protoc` and `grpc` test, git `8ca1332`
+  
+## command
+
+```bash
+# 本地配置启动
+go run cmd/main.go --config=config/config.toml
+# 远端配置启动
+go run main.go --config=http://remoteAddr
+```                                               
